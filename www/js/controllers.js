@@ -7,51 +7,45 @@ angular.module('starter.controllers', [])
 })
 
 .controller('VolumenUpCtrl', function($scope) {
-	$scope.page = "volumenUp";
-    
+	document.removeEventListener("volumeupbutton", onVolumeUpKeyDown);
+	document.removeEventListener("volumedownbutton", onVolumeDownKeyDown);
+	window.removeEventListener("shake", onShake);
 	document.addEventListener("volumeupbutton", onVolumeUpKeyDown, false);
-	
-	function onVolumeUpKeyDown() {
-		if($scope.page && $scope.page == "volumenUp") {
-			alert("subio volumen");
-		}
-    }
 })
 
 .controller('VolumenDownCtrl', function($scope) {
-	$scope.page = "volumenDown";
-	
+	document.removeEventListener("volumeupbutton", onVolumeUpKeyDown);
+	document.removeEventListener("volumedownbutton", onVolumeDownKeyDown);
+	window.removeEventListener("shake", onShake);
 	document.addEventListener("volumedownbutton", onVolumeDownKeyDown, false);
-	
-	function onVolumeDownKeyDown() {
-		if($scope.page && $scope.page == "volumenDown") {
-			alert("bajo volumen");
-		}
-    }
 })
 
 .controller('ShakeCtrl', function($scope) {
-	$scope.page = "shake";
+	document.removeEventListener("volumeupbutton", onVolumeUpKeyDown);
+	document.removeEventListener("volumedownbutton", onVolumeDownKeyDown);
+	window.removeEventListener("shake", onShake);
 	
-	document.addEventListener("deviceready", onDeviceReady, false);
+	myShakeEvent = new Shake({
+		threshold: 15
+	});
 
-    function onDeviceReady() {
-        startShake();
-    }
-	function startShake() {
-		var myShakeEvent = new Shake({
-			threshold: 15
-		});
+	// start listening to device motion
+	myShakeEvent.start();
 
-		myShakeEvent.start();
-
-		window.addEventListener('shake', shakeEventDidOccur, false);
-
-		function shakeEventDidOccur () {
-			alert('Agitaste!');
-		}
-	}
+	// register a shake event
+	window.addEventListener('shake', onShake, false);
 })
 
 .controller('MicrophonoCtrl', function($scope) {
 });
+
+var myShakeEvent;
+function onVolumeUpKeyDown() {
+	alert("subio volumen");
+}
+function onVolumeDownKeyDown() {
+	alert("bajo volumen");
+}
+function onShake() {
+	alert('Agitaste!');
+}
