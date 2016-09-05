@@ -29,6 +29,14 @@ angular.module('starter.controllers', [])
 		threshold: 15
 	});
 
+
+    $scope.class = "shake";
+
+	  $scope.changeClass = function(){
+	  $scope.class = "animated bounceInRight";
+  };
+
+
 	// start listening to device motion
 	myShakeEvent.start();
 
@@ -47,7 +55,6 @@ function onVolumeDownKeyDown() {
 	alert("bajo volumen");
 }
 function onShake() {
-	//alert('Agitaste!');
-	var myEl = angular.element( document.querySelector( '.shake' ) );
-	myEl.addClass('bounceInRight');
+	alert('Agitaste!');
+	//$scope.class = "animated bounceInRight";
 }
