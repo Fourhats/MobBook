@@ -1,1 +1,60 @@
 /* Empty. Add your own CSS if you like */
+.bar-stable, .bar , .bar-header{
+	display: none;
+}
+
+.pane{
+	background: #e7f7fd;
+}
+.mainContent{
+	width: 100%;
+	text-align: center;
+	position: relative;
+	background-image: url("../img/mainMenu.png");
+	background-size: cover;
+}
+
+.menuContent{
+	width: 100%;
+	text-align: center;
+	position: relative;
+	background-image: url("../img/selectMenu.png");
+	background-size: cover;
+}
+.shake{
+	display: none;
+	font-size: 65px;
+}
+
+.pageButton{
+	padding-top: 45%;
+    padding-bottom: 45%;
+}
+.startButton{
+	bottom: 100px;
+    left: 33%;
+}
+
+.startButton{
+    width: 70%;
+    padding-bottom: 15;
+    padding-top: 5%;
+    padding-bottom: 12%;
+}
+
+.head{
+   width: 75%;
+   padding-top: 10%;
+}
+
+.sun{
+	position: absolute;
+	top: 50px;
+    right: 50px;
+}
+
+.mainMenu{
+	position: relative;
+	max-width: 100%;
+
+}

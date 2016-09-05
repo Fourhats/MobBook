@@ -47,5 +47,7 @@ function onVolumeDownKeyDown() {
 	alert("bajo volumen");
 }
 function onShake() {
-	alert('Agitaste!');
+	//alert('Agitaste!');
+	var myEl = angular.element( document.querySelector( '.shake' ) );
+	myEl.addClass('bounceInRight');
 }
