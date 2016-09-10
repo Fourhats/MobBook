@@ -1,18 +1,10 @@
 <ion-view view-title="Home">
     <ion-content>
-		<div class="container">
-			<a href="#/volumenUp"> Subir Volumen
-			</a>
+		<div class="container mainContainer">
 			<br>
-			<a href="#/volumenDown"> Bajar Volumen
-			</a>
-			<br>
-			<a href="#/shake"> Agitar
-			</a>
-			<br>
-			<a href="#/microphono"> Microfono 
-			</a>
-			<br>
+			<img class="mainImage {{classUp}}" src="img/candleUp.png">
+			<img class="mainImage {{classBottom}}" src="img/candleBottom.png">
+			<button ng-click="changeClass()">Change Class</button>    
 		</div>
     </ion-content>
   </ion-view>

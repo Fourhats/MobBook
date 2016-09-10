@@ -58,3 +58,11 @@
 	max-width: 100%;
 
 }
+
+.mainImage{
+	max-width: 80%;
+}
+
+.mainContainer{
+	text-align: center;
+}
