@@ -2,7 +2,8 @@
     <ion-content>
 		<div class="container mainContainer">
 			<img class="mainImage {{class}}" src="img/guardian.png">
-			<button ng-click="changeClass()">Change Class</button>   
+			<button ng-click="changeClass()"  style="display: none">Change Class</button>
+			<button id="volumeDownButton" style="display: none" ng-click="changeClass()">Change Class</button>
 		</div>
     </ion-content>
   </ion-view>

@@ -7,45 +7,44 @@ angular.module('starter.controllers', [])
 	})
 
 	.controller('VolumenUpCtrl', function ($scope) {
-		document.removeEventListener("volumeupbutton", onVolumeUpKeyDown);
-		document.removeEventListener("volumedownbutton", onVolumeDownKeyDown);
-		window.removeEventListener("shake", onShake);
-		document.addEventListener("volumeupbutton", onVolumeUpKeyDown, false);
+		//document.removeEventListener("volumeupbutton", onVolumeUpKeyDown);
+		//document.removeEventListener("volumedownbutton", onVolumeDownKeyDown);
+		//window.removeEventListener("shake", onShake);
+		//document.addEventListener("volumeupbutton", onVolumeUpKeyDown, false);
 	})
 
 	.controller('VolumenDownCtrl', function ($scope, $location) {
-		document.removeEventListener("volumeupbutton", onVolumeUpKeyDown);
-		document.removeEventListener("volumedownbutton", onVolumeDownKeyDown);
-		window.removeEventListener("shake", onShake);
-		document.addEventListener("volumedownbutton", onVolumeDownKeyDown, false);
-
 		$scope.class = "animated fadeInLeft";
 
 		$scope.changeClass = function () {
 			$scope.class = "animated fadeOutRight";
-			$location.path('/goToPage')
-
+			$location.path('/goToPage');
 		};
+		
+		function onVolumeDown() {
+			document.getElementById("volumeDownButton").click();
+		};
+		
+		document.addEventListener("volumedownbutton", onVolumeDown);
 	})
 
 	.controller('ShakeCtrl', function ($scope) {
-		document.removeEventListener("volumeupbutton", onVolumeUpKeyDown);
-		document.removeEventListener("volumedownbutton", onVolumeDownKeyDown);
-		window.removeEventListener("shake", onShake);
-
+		$scope.classUp = "pepe";
+		$scope.classBottom = "pepe";
+			
 		myShakeEvent = new Shake({
 			threshold: 15
 		});
 
-
-		//$scope.class = "shake";
-
-		$scope.changeClass = function () {
+		$scope.shakeChangeClass = function() {
 			$scope.classUp = "animated fadeOut infinite";
 			$scope.classBottom = "animated pulse infinite";
 		};
 
-
+		function onShake() {
+			document.getElementById("shakeButton").click();
+		};
+		
 		// start listening to device motion
 		myShakeEvent.start();
 
@@ -71,13 +70,3 @@ angular.module('starter.controllers', [])
 	});
 
 var myShakeEvent;
-function onVolumeUpKeyDown() {
-	alert("subio volumen");
-}
-function onVolumeDownKeyDown() {
-	alert("bajo volumen");
-}
-function onShake() {
-	alert('Agitaste!');
-	//$scope.class = "animated swing infinite";
-}
