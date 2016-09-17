@@ -7,10 +7,6 @@ angular.module('starter.controllers', [])
 	})
 
 	.controller('VolumenUpCtrl', function ($scope) {
-		//document.removeEventListener("volumeupbutton", onVolumeUpKeyDown);
-		//document.removeEventListener("volumedownbutton", onVolumeDownKeyDown);
-		//window.removeEventListener("shake", onShake);
-		//document.addEventListener("volumeupbutton", onVolumeUpKeyDown, false);
 	})
 
 	.controller('VolumenDownCtrl', function ($scope, $location) {
@@ -18,7 +14,9 @@ angular.module('starter.controllers', [])
 
 		$scope.changeClass = function () {
 			$scope.class = "animated fadeOutRight";
-			$location.path('/goToPage');
+			setTimeout(function(){ 
+				$location.path('/goToPage'); 
+			}, 3000);
 		};
 		
 		function onVolumeDown() {
@@ -39,6 +37,9 @@ angular.module('starter.controllers', [])
 		$scope.shakeChangeClass = function() {
 			$scope.classUp = "animated fadeOut infinite";
 			$scope.classBottom = "animated pulse infinite";
+			setTimeout(function(){ 
+				$location.path('/goToPage'); 
+			}, 5000);
 		};
 
 		function onShake() {
