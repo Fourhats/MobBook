@@ -7,17 +7,28 @@ angular.module('starter.controllers', [])
 	})
 
 	.controller('VolumenUpCtrl', function ($scope) {
+		//document.removeEventListener("volumeupbutton", onVolumeUpKeyDown);
+		//document.removeEventListener("volumedownbutton", onVolumeDownKeyDown);
+		//window.removeEventListener("shake", onShake);
+		//document.addEventListener("volumeupbutton", onVolumeUpKeyDown, false);
 	})
 
-	.controller('VolumenDownCtrl', function ($scope, $location) {
+	.controller('VolumenDownCtrl', function ($scope, $location, $rootScope) {
 		$scope.class = "animated fadeInLeft";
 
 		$scope.changeClass = function () {
 			$scope.class = "animated fadeOutRight";
+				
 			setTimeout(function(){ 
-				$location.path('/goToPage'); 
-			}, 3000);
+				$rootScope.$apply(function() {
+					$location.path('/goToPage'); 
+				});
+			}, 2000);
 		};
+		
+		function goToPage() {
+			
+		}
 		
 		function onVolumeDown() {
 			document.getElementById("volumeDownButton").click();
@@ -26,7 +37,7 @@ angular.module('starter.controllers', [])
 		document.addEventListener("volumedownbutton", onVolumeDown);
 	})
 
-	.controller('ShakeCtrl', function ($scope) {
+	.controller('ShakeCtrl', function ($scope, $location, $rootScope) {
 		$scope.classUp = "pepe";
 		$scope.classBottom = "pepe";
 			
@@ -38,7 +49,9 @@ angular.module('starter.controllers', [])
 			$scope.classUp = "animated fadeOut infinite";
 			$scope.classBottom = "animated pulse infinite";
 			setTimeout(function(){ 
-				$location.path('/goToPage'); 
+				$rootScope.$apply(function() {
+					$location.path('/goToPage'); 
+				});
 			}, 5000);
 		};
 
